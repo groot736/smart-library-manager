@@ -1,0 +1,136 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  FACULTY
+  ADMIN
+}
+
+enum TransactionType {
+  ISSUE
+  RETURN
+  RENEWAL
+}
+
+enum ReservationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  FULFILLED
+  CANCELLED
+}
+
+model User {
+  id             String        @id @default(cuid())
+  name           String
+  email          String        @unique
+  passwordHash   String
+  role           Role
+  branch         String?
+  isVerified     Boolean       @default(false)
+  otpCode        String?
+  otpExpiresAt   DateTime?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  activityLogs   ActivityLog[]
+  transactions   Transaction[]
+  reservations   Reservation[]
+  fines          Fine[]
+  recommendations Recommendation[]
+}
+
+model Book {
+  id             String        @id @default(cuid())
+  title          String
+  author         String
+  isbn           String        @unique
+  description    String
+  category       String
+  tags           String[]
+  coverUrl       String?
+  publishedYear  Int?
+  totalCopies    Int
+  availableCopies Int
+  branch         String        @default("Main")
+  rating         Float         @default(4.2)
+  language       String        @default("English")
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+  transactions   Transaction[]
+  reservations   Reservation[]
+  recommendations Recommendation[]
+}
+
+model Transaction {
+  id             String          @id @default(cuid())
+  userId         String
+  bookId         String
+  type           TransactionType
+  issuedAt       DateTime?
+  returnedAt     DateTime?
+  dueDate        DateTime?
+  fineAmount     Float           @default(0)
+  createdAt      DateTime        @default(now())
+  user           User            @relation(fields: [userId], references: [id])
+  book           Book            @relation(fields: [bookId], references: [id])
+}
+
+model Reservation {
+  id             String            @id @default(cuid())
+  userId         String
+  bookId         String
+  queuePosition  Int
+  status         ReservationStatus @default(PENDING)
+  requestedAt    DateTime          @default(now())
+  expiresAt      DateTime?
+  user           User              @relation(fields: [userId], references: [id])
+  book           Book              @relation(fields: [bookId], references: [id])
+}
+
+model Fine {
+  id             String        @id @default(cuid())
+  userId         String
+  transactionId  String?
+  amount         Float
+  reason         String
+  paid           Boolean       @default(false)
+  createdAt      DateTime      @default(now())
+  user           User          @relation(fields: [userId], references: [id])
+}
+
+model Recommendation {
+  id             String       @id @default(cuid())
+  userId         String
+  bookId         String
+  score          Float
+  source         String
+  createdAt      DateTime     @default(now())
+  user           User         @relation(fields: [userId], references: [id])
+  book           Book         @relation(fields: [bookId], references: [id])
+}
+
+model ActivityLog {
+  id             String       @id @default(cuid())
+  userId         String
+  action         String
+  meta           Json?
+  createdAt      DateTime     @default(now())
+  user           User         @relation(fields: [userId], references: [id])
+}
+
+model AnalyticsSnapshot {
+  id             String       @id @default(cuid())
+  key            String
+  value          Float
+  label          String
+  capturedAt     DateTime     @default(now())
+
+  @@index([key, capturedAt])
+}

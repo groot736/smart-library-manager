@@ -1,0 +1,28 @@
+{
+  "name": "library-management-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm run dev -w apps/api & npm run dev -w apps/web",
+    "build": "npm run build -w apps/api && npm run build -w apps/web",
+    "lint": "npm run lint -w apps/web",
+    "setup:local": "./scripts/setup-local.sh",
+    "dev:local": "./scripts/dev-local.sh",
+    "dev:docker": "./scripts/dev-docker.sh",
+    "stop:docker": "./scripts/stop-docker.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
