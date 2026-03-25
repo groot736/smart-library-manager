@@ -1,145 +1,199 @@
-# UniLib AI - University Library Management SaaS
+# 🚀 UniLib AI — University Library Management SaaS
 
-Created by Subhadeep Mondal.
+<p align="center">
+  <b>AI-powered smart library ecosystem for modern universities</b><br/>
+  Built with scalability, intelligence & real-world production architecture 🎓
+</p>
 
-UniLib AI is a full-stack, AI-powered university library platform with production-style architecture, role-based access, advanced dashboards, semantic search, recommendation endpoints, and realtime analytics.
+<p align="center">
+  <a href="https://github.com/groot736/smart-library/stargazers">
+    <img src="https://img.shields.io/github/stars/groot736/smart-library?style=for-the-badge" />
+  </a>
+  <a href="https://github.com/groot736/smart-library/network">
+    <img src="https://img.shields.io/github/forks/groot736/smart-library?style=for-the-badge" />
+  </a>
+  <img src="https://img.shields.io/badge/AI-Powered-purple?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Status-Live-success?style=for-the-badge"/>
+</p>
 
-## Tech Stack
+---
 
-- Frontend: React, Vite, Tailwind CSS v4, Framer Motion, Chart.js, Zustand
-- Backend: Node.js, Express, TypeScript, Prisma ORM, JWT auth, Socket.IO
-- Database: PostgreSQL
-- AI Layer: semantic search, recommendations, forecasting, chatbot intent handling
-- DevOps: Dockerfiles + docker-compose
+## 🎬 Live Demo
 
-## Roles
+<p align="center">
+  <a href="https://web-six-chi-77.vercel.app">
+    <img src="https://img.shields.io/badge/🔗 Live Demo-Click Here-blue?style=for-the-badge"/>
+  </a>
+</p>
 
-- STUDENT: search, issue/return, reserve, personal dashboard
-- FACULTY: oversight operations + reservation approvals
-- ADMIN: full control panel and analytics
+---
 
-## Project Structure
+## 🖼️ Preview
 
-- apps/web - React frontend with premium UI/UX and PWA assets
-- apps/api - REST API + auth + domain services + Prisma schema
-- docs - API, schema, and architecture docs
+<p align="center">
+  <img src="./assets/demo.png" alt="UniLib AI Preview" width="900"/>
+</p>
 
-## Quick Start
+> ⚠️ Put your screenshot inside: `assets/demo.png` in your repo
 
-1. Install dependencies
+---
 
-```bash
+## 🌟 Overview
+
+**UniLib AI** is a **full-stack SaaS platform** that transforms traditional university libraries into **AI-powered intelligent ecosystems**.
+
+It combines **semantic search, real-time analytics, role-based dashboards, and intelligent recommendations** — all built with a **production-grade architecture**.
+
+---
+
+## 🧠 Core Features
+
+* 🤖 AI Semantic Search & Smart Recommendations
+* 📊 Realtime Analytics Dashboard (Socket.IO)
+* 🔐 Role-Based Access Control (RBAC)
+* 📡 Modular Scalable Backend
+* 📱 Progressive Web App (PWA)
+* ⚡ High-performance UI
+
+---
+
+## 🎭 User Roles
+
+| Role          | Capabilities                             |
+| ------------- | ---------------------------------------- |
+| 🎓 Student    | Search, issue/return, reserve, dashboard |
+| 👨‍🏫 Faculty | Manage approvals & reservations          |
+| 🛡️ Admin     | Full control panel & analytics           |
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend:** React • Vite • Tailwind CSS • Framer Motion • Chart.js • Zustand
+**Backend:** Node.js • Express • TypeScript • Prisma • JWT • Socket.IO
+**Database:** PostgreSQL
+**AI Layer:** Semantic Search • Recommendations • Forecasting • Chatbot
+**DevOps:** Docker • Docker Compose
+
+---
+
+## 🏗️ Project Structure
+
+```bash id="v8o1j9"
+apps/
+  web/   → Frontend (React + PWA)
+  api/   → Backend (REST + Services)
+
+docs/
+  API.md
+  SCHEMA.md
+  ARCHITECTURE.md
+```
+
+---
+
+## ⚡ Quick Start
+
+```bash id="7p6c1z"
 npm install
-```
-
-Or run full local bootstrap in one command:
-
-```bash
 npm run setup:local
-```
-
-2. Start PostgreSQL using Docker (recommended)
-
-```bash
 docker compose up -d postgres
-```
-
-3. Configure environment
-
-```bash
 cp apps/api/.env.example apps/api/.env
-```
 
-4. Run Prisma migration and seed demo data
-
-```bash
 npm run prisma:generate -w apps/api
 npm run prisma:migrate -w apps/api
 npm run prisma:seed -w apps/api
-```
 
-5. Start backend and frontend
-
-```bash
 npm run dev
 ```
 
-Alternative shortcuts:
+---
 
-```bash
-npm run dev:local
-```
+## 🌐 Local Access
 
-```bash
-npm run dev:docker
-```
+* API → http://localhost:4000
+* Web → http://localhost:5173
 
-To stop docker mode:
+---
 
-```bash
-npm run stop:docker
-```
+## 🔐 Security
 
-- API: http://localhost:4000
-- Web: http://localhost:5173
+* JWT Authentication
+* Role-based Authorization
+* Zod Validation
+* Helmet & CORS
+* bcrypt Password Hashing
 
-## Demo Accounts
+---
 
-- admin@unilib.ai / Password@123
-- faculty@unilib.ai / Password@123
-- student@unilib.ai / Password@123
+## 🤖 AI Capabilities
 
-## Security Highlights
+* Natural Language Search
+* Personalized Recommendations
+* Demand Forecasting
+* AI Chatbot Assistant
+* AI Study Mode (Notes + MCQs + Summary)
+* Predictive Book Availability
+* Gamification System
+* Auto Tag Generation
 
-- JWT authentication and role-based authorization
-- Input validation using Zod
-- Helmet, CORS, and structured error handling
-- Password hashing with bcrypt
+---
 
-## AI Features Included
+## ⚡ Advanced Features
 
-- Natural-language smart search endpoint
-- Personalized recommendation endpoint
-- Forecast endpoint for demand and low-stock signals
-- Chatbot endpoint for FAQs and search assistance
-- AI Study Mode (summary + key notes + MCQs + revision checklist)
-- Predictive book availability estimator
-- Gamification leaderboard and badge scoring
-- Study matchmaking for users reading similar books
-- Auto-tag generation for book metadata
+* 📡 Socket.IO Realtime Updates
+* 📥 Reservation Queue
+* 💰 Fine Management
+* 🔔 Notification Simulation
+* 📷 Barcode/RFID API
+* 🎤 Voice Search
+* 📖 Digital Reader
 
-## Realtime + Advanced Features
+---
 
-- Socket.IO realtime analytics updates
-- Reservation queue with approval flow
-- Fine calculation and transaction lifecycle
-- Notification simulation service (email/SMS style payload)
-- Barcode/RFID simulation endpoint (`GET /api/books/scan/:code`)
-- Voice search UX in Innovation Hub page
-- Digital reader simulation with highlight notes
-- PWA manifest and service worker support
+## 🎨 UI Highlights
 
-## Premium UI Highlights
+* Glassmorphism Design ✨
+* Dark / Light Mode 🌗
+* Netflix-style UI 🎬
+* Smooth Animations
 
-- Glassmorphism-based responsive layout with dark/light mode
-- Netflix-style horizontal catalog strips (trending/recommended/new)
-- AI Lab route (`/innovation`) for advanced learning workflows
+---
 
-## API Documentation
+## 🚀 Deployment
 
-See docs/API.md.
+🌍 Live: https://web-six-chi-77.vercel.app
 
-## Database Schema
+Frontend → Vercel
+Backend → Render / Railway
+Database → PostgreSQL
 
-See docs/SCHEMA.md.
+---
 
-## Architecture Notes
+## 🏆 Why This Project?
 
-See docs/ARCHITECTURE.md.
+✅ Real SaaS Architecture
+✅ AI + Full Stack + DevOps
+✅ Production-ready
+✅ Perfect for Resume / Placements
 
-## Helper Scripts
+---
 
-- scripts/setup-local.sh: installs deps, checks DB, migrates, seeds
-- scripts/dev-local.sh: starts API + Web in local mode
-- scripts/dev-docker.sh: starts full stack using docker compose
-- scripts/stop-docker.sh: stops docker compose services
+## 👨‍💻 Author
+
+**Subhadeep Mondal**
+🔗 https://github.com/groot736
+
+---
+
+## 💖 Support
+
+⭐ Star this repo
+🍴 Fork it
+🚀 Share it
+
+---
+
+<p align="center">
+  <b>🔥 Building the future of intelligent libraries 🔥</b>
+</p>
