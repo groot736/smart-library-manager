@@ -34,7 +34,7 @@
   <img src="assets/demo.png" alt="UniLib AI Preview" width="900"/>
 </p>
 
-> ⚠️ Put your screenshot inside: `assets/demo.png` in your repo
+
 
 ---
 
